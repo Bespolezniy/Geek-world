@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <header class="p-2 bg-primary">
+    <h1 class="text-center text-white"><i class="fas fa-laptop"></i>GeekWorld</h1>
+  </header>
+  <div class="row pt-3">
+    <nav class="col-3 border-right">
+      <ul class="nav flex-column nav-pills">
+        {% url 'main' as page_url %}
+        <li class="nav-item">
+          <a class="nav-link {% if page_url == current_url %} active {% endif %}" href="{{page_url}}">
+            <i class="fas fa-home"></i>
+            Main
+          </a>
+        </li>
+        {% url 'guestbook' as page_url %}
+        <li class="nav-item">
+          <a class="nav-link {% if page_url == current_url %} active {% endif %}" href="{{page_url}}">
+            <i class="fas fa-book"></i>
+            Guest book
+          </a>
+        </li>
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/"><i class="fas fa-user-secret"></i> Admin page</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Log out</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+    <main class="col-9">
+      {% block main %}
+      {% endblock main %}
+    </main>
+  </div>
+  <footer>
+    <p></p>
+  </footer>
+{% endblock content %}

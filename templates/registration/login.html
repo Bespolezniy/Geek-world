@@ -1,0 +1,15 @@
+{% extends 'login_or_out.html' %}
+{% load bootstrap4 %}
+{% block title %}Login{% endblock title %}
+{% block logpage %}
+  <h2 class="text-center font-weight-bold pt-5">Login</h2>
+  <form action='' class="bg-light p-5 rounded" method="post">
+    {% include 'generic/form.html' %}
+    {% buttons %}
+      <button type="submit" class="btn btn-primary">
+        <i class="fas fa-sign-in-alt"></i> Login
+      </button>
+    {% endbuttons %}
+    <input type="hidden" name="text" value="{{next}}">
+  </form>
+{% endblock logpage %}

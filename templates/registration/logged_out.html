@@ -1,0 +1,10 @@
+{% extends 'login_or_out.html' %}
+{% block title %} Logout {% endblock title %}
+{% block logpage %}
+  <div class="text-center mt-5 pt-5">
+    <h2>Logout</h2>
+    <p>You logged out from our site</p>
+    <a href="{% url 'login' %}">Login again</a>
+    <a href="{% url 'main' %}">Main page</a>
+  </div>
+{% endblock logpage %}

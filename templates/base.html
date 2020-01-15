@@ -1,0 +1,19 @@
+{% load static %}
+{% load bootstrap4 %}
+
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    {% block js %}{% endblock js %}
+    <title>{% block title %}{% endblock title %} :: GeekWord</title>
+    <script src="https://kit.fontawesome.com/499381f5fe.js" crossorigin="anonymous"></script>
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    {% bootstrap_messages %}
+  </head>
+  <body class="container">
+    {% block content %}
+    {% endblock content %}
+  </body>
+</html>
