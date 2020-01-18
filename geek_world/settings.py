@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'taggit',
     'bootstrap4',
     'main',
-    'guestbook'
+    'guestbook',
+    'news'
 ]
 
 MIDDLEWARE = [

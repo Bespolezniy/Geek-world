@@ -4,7 +4,7 @@
   <header class="p-2 bg-primary">
     <h1 class="text-center text-white"><i class="fas fa-laptop"></i>GeekWorld</h1>
   </header>
-  <div class="row pt-3">
+  <div class="row pt-3 mb-auto">
     <nav class="col-3 border-right">
       <ul class="nav flex-column nav-pills">
         {% url 'main' as page_url %}
@@ -12,6 +12,13 @@
           <a class="nav-link {% if page_url == current_url %} active {% endif %}" href="{{page_url}}">
             <i class="fas fa-home"></i>
             Main
+          </a>
+        </li>
+        {% url 'news_index' as page_url %}
+        <li class="nav-item">
+          <a class="nav-link {% if page_url == current_url %} active {% endif %}" href="{{page_url}}">
+            <i class="far fa-newspaper"></i>
+             News
           </a>
         </li>
         {% url 'guestbook' as page_url %}
@@ -36,7 +43,9 @@
       {% endblock main %}
     </main>
   </div>
-  <footer>
-    <p></p>
+  <footer class="fixed-bottom d-flex flex-column justify-content-end">
+    <div class="bg-primary container">
+      <p class="text-center text-white pt-2">Copyright © Me 2020</p>
+    <div>
   </footer>
 {% endblock content %}
