@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'bootstrap4',
     'main',
     'guestbook',
-    'news'
+    'news',
+    'imagestore',
+    'categories',
+    "goods"
 ]
 
 MIDDLEWARE = [
@@ -152,3 +155,7 @@ EMAIL_HOST_USER = 'ADMIN'
 EMAIL_HOST_PASSWORD = '123456789'
 DEFAULT_FROM_EMAIL = 'any@server.ru'
 LOGIN_REDIRECT_URL = 'main'
+
+X_FRAME_OPTIONS = 'ALLOWALL'
+
+XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']

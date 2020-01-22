@@ -4,7 +4,7 @@ from django.db import models
 
 class GuestBook(models.Model):
     user = models.CharField(max_length=15, verbose_name="User")
-    date = models.DateField(db_index=True, auto_now_add=True, verbose_name="Published")
+    date = models.DateTimeField(db_index=True, auto_now_add=True, verbose_name="Published")
     content = models.TextField(verbose_name="Content")
     class Meta:
         ordering = ["-date"]
