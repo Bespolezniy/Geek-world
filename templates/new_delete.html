@@ -5,12 +5,12 @@
   <h2>Delete new</h2>
   <h4>{{object.title}}</h4>
   <div>{{object.content|safe}}</div>
-  <p>{{object.date|date: "j.m.Y H:i:s"}}</p>
+  <p>{{object.posted|date:"j.m.Y H:i:s"}}</p>
   <form action="" method="post">
-    {% include "generic/form.html" %}
+    {% csrf_token %}
     {% buttons %}
       <button type="submit" class="btn btn-primary">
-        <i class="fa fa-plus-square" aria-hidden="true"></i> Delete
+        <i class="far fa-trash-alt" aria-hidden="true"></i> Delete
       </button>
     {% endbuttons %}
   </form>

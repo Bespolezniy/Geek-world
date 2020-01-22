@@ -1,0 +1,26 @@
+<table id="imagestore_image_list" href="{% url 'imagestore_index' %}" class="table">
+  <tbody>
+    <tr>
+      <td class="link"><a id="imagestore_prev" href="#">&laquo;</a></td>
+      <td class="image">&nbsp;</td>
+      <td class="image">&nbsp;</td>
+      <td class="image">&nbsp;</td>
+      <td class="image">&nbsp;</td>
+      <td class="link"><a id="imagestore_next" href="#">&raquo;</a></td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <form id="imagestore_from" action="{% url 'imagestore_upload' %}" method="post"
+  enctype="multipart/form-data" target="imagestore_output">
+    {% csrf_token %}
+    <fieldset>
+      <label>File for upload</label>
+      <div>
+        <input type="file" id="file_to_upload" name="file_to_upload"/>
+      </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+  <iframe class="sr-only" id="imagestore_output" name="imagestore_output"></iframe>
+</div>

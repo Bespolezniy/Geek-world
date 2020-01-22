@@ -8,15 +8,15 @@
   {% endif %}
   {% for object in latest %}
     <h4>
-      <a href="{% url "news_detail" pk=object.pk %} ?page={{page_obj.number}}">{{object.title}}</a>
+      <a href="{% url "news_detail" pk=object.pk %}?page={{page_obj.number}}">{{object.title}}</a>
     </h4>
     <p>{{object.description}}</p>
-    <p>{{object.date|date:"j.m.Y"}}<p>
+    <p>{{object.posted|date:"j.m.Y H:i:s"}}<p>
     {% if perms.news.change_new %}
-      <a href="{% url "news_update" pk=object.pk %} ?page={{page_obj.number}}">Change</a>
+      <a href="{% url "news_edit" pk=object.pk %}?page={{page_obj.number}}">Change</a>
     {% endif %}
     {% if perms.news.delete_new %}
-      <a href="{% url "news_delete" pk=object.pk %} ?page={{page_obj.number}}">Delete</a>
+      <a href="{% url "news_delete" pk=object.pk %}?page={{page_obj.number}}">Delete</a>
     {% endif %}
   {% endfor %}
   {% include "generic/paginator.html" %}

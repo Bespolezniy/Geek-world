@@ -29,6 +29,13 @@
           </a>
         </li>
         {% if user.is_authenticated %}
+          {% url 'categories_edit' as page_url %}
+          <li class="nav-item">
+            <a class="nav-link {% if page_url == current_url %} active {% endif %}" href="{{page_url}}">
+              <i class="fas fa-list"></i>
+              Categories
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/admin/"><i class="fas fa-user-secret"></i> Admin page</a>
           </li>
@@ -43,7 +50,7 @@
       {% endblock main %}
     </main>
   </div>
-  <footer class="fixed-bottom d-flex flex-column justify-content-end">
+  <footer class="d-flex flex-column justify-content-end">
     <div class="bg-primary container">
       <p class="text-center text-white pt-2">Copyright © Me 2020</p>
     <div>

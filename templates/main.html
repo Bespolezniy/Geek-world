@@ -1,7 +1,15 @@
 {% extends 'index.html' %}
 {% block title %}Main page{% endblock title %}
 {% block main %}
-  <h2>Everething what heed for real Geek</h2>
+  <h2>Everething what need for real Geek</h2>
   <p>GeekWorld offers computers, laptops, tablets, phones and other things</p>
+  <h3>News</h3>
+  {% for object in news %}
+    <h4>
+      <a href="{% url 'news_detail' pk=object.pk %}">{{object.title}}</a>
+      <p>{{object.description}}</p>
+      <p>{{object.posted|date:"j.m.Y H:i:s"}}</p>
+    </h4>
+  {% endfor %}
   <h3>Popular</h3>
 {% endblock main %}

@@ -14,7 +14,7 @@ from generic.controllers import PageNumberView
 class NewsListView(ArchiveIndexView, CaregoryListMixin):
     model = New
     template_name = "news_index.html"
-    date_field = "date"
+    date_field = "posted"
     paginate_by = 10
     allow_empty = True
     allow_future = True
@@ -23,27 +23,28 @@ class NewDetailView(DetailView, PageNumberMixin):
     model = New
     template_name = "new.html"
 
-class NewCreateView(SuccessMessageMixin, CreateView, CaregoryListMixin):
+class NewCreate(SuccessMessageMixin, CreateView, CaregoryListMixin):
     model = New
     template_name = "new_add.html"
     success_url = reverse_lazy("news_index")
     success_message = "New was created"
     fields=['title', 'description', 'content']
 
-class NewUpdateView(SuccessMessageMixin, PageNumberView, UpdateView, PageNumberMixin):
+class NewUpdate(SuccessMessageMixin, PageNumberView, UpdateView, PageNumberMixin):
     model = New
     template_name = "new_edit.html"
     success_url = reverse_lazy("news_index")
     success_message = "New was changed"
+    fields=['title', 'description', 'content']
 
-class NewDeleteView(PageNumberView, DeleteView, PageNumberMixin):
+class NewDelete(PageNumberView, DeleteView, PageNumberMixin):
     model = New
     template_name = "new_delete.html"
     success_url = reverse_lazy("news_index")
 
     def post(self, request, *args, **kwargs):
         messages.add_message(request, messages.SUCCESS, "New was deleted")
-        return super(NewDeleteView, self).post(request, *args, **kwargs)
+        return super(NewDelete, self).post(request, *args, **kwargs)
 
 
 

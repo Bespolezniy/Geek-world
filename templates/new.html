@@ -3,6 +3,6 @@
 {% block main %}
   <h2>{{object.title}}</h2>
   <div>{{object.content|safe}}</div>
-  <p>{{object.date|date: "j.m.Y"}}</p>
-  <a href="{% url 'news_index' %} ?page={{pn}}">Back</a>
+  <p>{{object.posted|date:"j.m.Y H:i:s"}}</p>
+  <a href="{% url 'news_index' %}?page={{pn}}">Back</a>
 {% endblock main %}

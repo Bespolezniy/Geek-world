@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% load bootstrap4 %}
+{% block title %} Categories {% endblock title %}
+{% block main %}
+  {% include "generic/messages.html" %}
+  <h2>Categories</h2>
+  <form action="" method="post">
+    {% include "generic/formset.html" %}
+    {% buttons %}
+      <button type="submit" class="btn btn-primary">
+        <i class="far fa-save"></i> Save
+      </button>
+    {% endbuttons %}
+  </form>
+{% endblock main %}
