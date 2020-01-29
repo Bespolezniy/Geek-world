@@ -11,8 +11,8 @@ class Good(models.Model):
     content = models.TextField(verbose_name="Full description")
     price = models.FloatField(db_index=True, verbose_name="Price $")
     price_acc = models.FloatField(null=True, blank=True, verbose_name="Final price $")
-    in_stoke = models.BooleanField(default=True, db_index=True, verbose_name="In stock")
-    featured = models.BooleanField(default=True, db_index=True, verbose_name="Recomended")
+    in_stock = models.BooleanField(default=True, db_index=True, verbose_name="In stock")
+    featured = models.BooleanField(default=False, db_index=True, verbose_name="Recomended")
     image = models.ImageField(upload_to="goods/list", verbose_name="Main image")
 
     def save(self, *args, **kwargs):

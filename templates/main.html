@@ -1,4 +1,5 @@
 {% extends 'index.html' %}
+{% load thumbnail %}
 {% block title %}Main page{% endblock title %}
 {% block main %}
   <h2>Everething what need for real Geek</h2>
@@ -12,4 +13,24 @@
     </h4>
   {% endfor %}
   <h3>Popular</h3>
+  <table class="table">
+    {% for object in goods  %}
+      <tr>
+        <td><a href="{% url 'goods_detail' pk=object.pk %}">
+          <img src="{% thumbnail object.image "base" %}" >
+        </a></td>
+        <td><a href="{% url 'goods_detail' pk=object.pk %}">
+          {{object.name}}
+        </a></td>
+        <td>{{object.description}}</td>
+        <td>{% if object.price_acc > 0 %}<span>
+          {{object.price}}</span>&nbsp;&nbsp;{{object.price_acc}}{% else %}{{object.price}}{% endif %}</td>
+        <td>
+          {% if object.in_stock %}
+            <p>In stock</p>
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
 {% endblock main %}
